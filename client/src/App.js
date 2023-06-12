@@ -48,8 +48,9 @@ const App = () => {
         setPersons(persons.concat(returnedPerson));
         showMessage(`Added ${newPerson.name}`, "success");
       })
-      .catch((e) => {
-        showMessage("Something went wrong", "error");
+      .catch((err) => {
+        console.log(err.response.data.error);
+        showMessage(`${err.response.data.error}`, "error");
       });
     resetForm();
   };
@@ -66,11 +67,11 @@ const App = () => {
           })
         );
         showMessage(`Updated ${returnedPerson?.name}`, "success");
+        resetForm();
       })
-      .catch((e, returnedPerson) => {
-        showMessage(`Couldn't update ${returnedPerson?.name}`, "error");
+      .catch((err) => {
+        showMessage(`${err.response.data.error}`, "error");
       });
-    resetForm();
   };
 
   const deletePerson = (name, id) => {
@@ -99,7 +100,7 @@ const App = () => {
     setMessage({ content, type });
     setTimeout(() => {
       setMessage({ content, type: "" });
-    }, 2000);
+    }, 3000);
   };
 
   let personsToShow = filter

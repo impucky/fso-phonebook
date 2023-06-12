@@ -1,5 +1,5 @@
 import axios from "axios";
-const personsUrl = "https://fso-phonebook-server.onrender.com/api/persons";
+const personsUrl = "http://localhost:3001/api/persons";
 
 const getAll = () => {
   return axios.get(personsUrl).then((res) => res.data);
