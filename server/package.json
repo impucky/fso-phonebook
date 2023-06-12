@@ -1,5 +1,5 @@
 {
-  "name": "fso-phonebook-backend",
+  "name": "phonebook-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
