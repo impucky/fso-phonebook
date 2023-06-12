@@ -8,7 +8,7 @@ const Person = require("./models/person");
 app.use(express.json());
 app.use(cors());
 
-morgan.token("entry", (req, res) => Object.keys(req.body).length && JSON.stringify(req.body));
+morgan.token("entry", (req) => Object.keys(req.body).length && JSON.stringify(req.body));
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :entry"));
 
 const unknownEndpoint = (req, res) => {

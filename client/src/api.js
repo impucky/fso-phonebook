@@ -1,5 +1,5 @@
 import axios from "axios";
-const personsUrl = "http://localhost:3001/api/persons";
+const personsUrl = "https://fso-phonebook-server.onrender.com/api/persons";
 
 const getAll = () => {
   return axios.get(personsUrl).then((res) => res.data);
@@ -17,9 +17,11 @@ const remove = (id) => {
   return axios.delete(`${personsUrl}/${id}`);
 };
 
-export default {
+const api = {
   getAll,
   create,
   update,
   remove,
 };
+
+export default api;
